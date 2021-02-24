@@ -51,7 +51,7 @@ def upload():
 def get_image(filename):
     if not session.get('logged_in'):
         abort(401)
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    return send_from_directory(os.path.join('..', app.config['UPLOAD_FOLDER']), filename)
 
 
 @app.route('/files')
